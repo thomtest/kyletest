@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" class="wf-firasans-n4-active wf-active">
+	<head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Enable responsiveness on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    <meta name="generator" content="Hugo 0.37.1" />
+    
+    <title>PowerCLI - NSX-T Module Usage &middot; </title>
+    <meta content="PowerCLI - NSX-T Module Usage - " property="og:title">
+    <meta content=" - " property="og:description">
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif:300,300i,400,400i,700,700i|Source+Code+Pro:300,300i,400,400i" rel="stylesheet">
+    <link rel="stylesheet" href="https://kmruddy.github.iocss/print.css" media="print">
+    <link rel="stylesheet" href="https://kmruddy.github.iocss/poole.css">
+    <link rel="stylesheet" href="https://kmruddy.github.iocss/hyde.css">
+    <!-- Font-Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+    <!-- highlight.js-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <!-- Customised CSS -->
+    <link rel="stylesheet" href="https://kmruddy.github.iocss/custom.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    
+
+	</head>
+    <body class=" ">
+        <div class="sidebar">
+  <div class="container text-center ">
+    <div class="sidebar-about text-center">
+      <a href="https://kmruddy.github.io"> <img src="/img/kmr.jpg" alt="Author Image" class="img-circle headshot center"> </a>
+      <a href="https://kmruddy.github.io"><h1 class="brand">kmruddy.com</h1></a>
+      <p class="lead">
+         My notes and ramblings, normally about automation 
+      </p>
+    </div>
+    <p>
+      <section class="row text-center">
+	
+	<a href="https://twitter.com/kmruddy"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	&nbsp;<a href="https://github.com/kmruddy"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	&nbsp;<a href="https://linkedin.com/in/kmruddy"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a>
+	
+	
+	&nbsp;<a href="https://stackoverflow.com/users/kmruddy"><i class="fab fa-stack-overflow fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+</section>
+
+    </p>
+    <p>
+      
+<div>
+	<ul class="sidebar-nav">
+		
+		
+				<li>
+					<a href="/"> <span>Home</span></a>
+				</li>
+				<li>
+					<a href="/about/"> <span>About</span></a>
+				</li>
+				<li>
+					<a href="/catagories/posh"> <span>PowerShell</span></a>
+				</li>
+				<li>
+					<a href="/catagories/pcli"> <span>PowerCLI</span></a>
+				</li>
+				<li>
+					<a href="/catagories/vbrownbag"> <span>vBrownBag</span></a>
+				</li>
+		</li>
+	</ul>
+</div>
+
+    </p>
+    <p class="copyright">&copy; 2018 Kyle Ruddy.<br />
+      <a href="https://creativecommons.org/licenses/by/4.0">Some Rights Reserved</a>.<br/>Built with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
+    </p>
+  </div>
+  <div>
+  </div>
+</div>
+
+        <div class="content container">
+            <div class="post">
+  <h1>PowerCLI - NSX-T Module Usage</h1>
+  
+  <div class="col-sm-12 col-md-12">
+    <span class="text-left post-date meta">
+            
+       
+        <i class="fas fa-calendar-alt"></i> Nov 28, 2017
+      
+      
+      
+      
+        
+        
+            <br/>
+             <i class="fas fa-tags"></i>
+            
+            <a class="meta" href="/tags/nsx">nsx</a> 
+        
+            <a class="meta" href="/tags/powercli">powercli</a> 
+        
+            <a class="meta" href="/tags/powershell">powershell</a> 
+        
+            <a class="meta" href="/tags/vmware">vmware</a>
+        
+      
+      
+      <br/>
+      <i class="fas fa-clock"></i> 7 min read 
+      </span>  
+  </div>    
+  
+  
+
+<p>PowerCLI 6.5.3 was released a few short weeks ago and one of the biggest additions was the module to manage VMware NSX-T! This version of NSX provides network virtualization to not only VMware environments, but also multi-cloud and multi-hypervisor environments too.</p>
+
+<p>Before diving into the module itself, there are a couple things we should cover first. This module was released as a low-level, API access only, module. That means the module comes with the following cmdlets: Connect-NsxtServer, Disconnect-NsxtServer, and Get-NsxtService. The first two cmdlets should be fairly straight forward, but the third is where it gets interesting. The Get-NsxtService cmdlet allows us to have full access to NSX-T’s public API! This module also gives users the capability to use a ‘create’ method to create PowerShell objects. These objects can then be modified and used as input back to the endpoint. This really helps simplify and streamline the interaction between PowerCLI and the NSX-T API endpoint!</p>
+
+<p>For more information about the NSX-T 2.0 release, see the Network Virtualization blog: <a href="https://blogs.vmware.com/networkvirtualization/2017/08/nsx-t-2-0.html/">NSX-T 2.0 is Here!</a>
+For more information about the NSX-T 2.0 API, see the <a href="https://code.vmware.com/web/dp/explorer-apis?id=222">VMware Code API Explorer</a></p>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<p>First things first, open up a PowerShell session and authenticate to your NSX-T Manager with the ‘Connect-NsxtServer’ cmdlet. Output Example: <img src="http://blogs.vmware.com/PowerCLI/files/2017/11/nsxtmod00.jpg" alt="Connect-NsxtServer Example" /> We are now ready to start exploring the NSX-T API with the ‘Get-NsxtService’ cmdlet. Running that cmdlet as is will return every named call for the NSX-T API, so this may be a little overwhelming at first. To make this easier, remember to reference the API Explorer as well as PowerShell’s ‘where-object’ cmdlet to help filter the names for what you need.</p>
+
+<h2 id="example-getting-nsx-t-manager-information">Example: Getting NSX-T Manager Information</h2>
+
+<p>For the first example, we are looking for information about the NSX-T Manager node. Searching through the <a href="https://code.vmware.com/web/dp/explorer-apis?id=222">VMware Code API Explorer for NSX-T</a> for ‘nsx manager appliance’, we see a ‘GET’ method against ‘/node’ that is probably the most relevant call.</p>
+
+<p><img src="http://blogs.vmware.com/PowerCLI/files/2017/11/nsxtmod06.jpg" alt="NSX-T API Explorer Example" /></p>
+
+<p>To consume this in the PowerCLI module, we will use the ‘Get-NsxtService’ cmdlet to search for a name that ends in ‘node’ with the following code:</p>
+
+<pre><code>Get-NsxtService -Name *node
+</code></pre>
+
+<p>We can then save that service in a variable to easily reference for future commands:</p>
+
+<pre><code>$nodeSvc = Get-NsxtService com.vmware.nsx.node
+</code></pre>
+
+<p>We can now explore the methods available by piping the ‘nodeSvc’ variable to PowerShell’s ‘Get-Member’ cmdlet. Example:</p>
+
+<pre><code>$nodeSvc | Get-Member
+</code></pre>
+
+<p>There, In the output from ‘Get-Member’, we will see a ‘get’ method. We’ll want to perform that with the following code:</p>
+
+<pre><code>$nodeSvc.get()
+</code></pre>
+
+<p>Combined Command Example:</p>
+
+<pre><code>Get-NsxtService -Name *node
+$nodeSvc = Get-NsxtService com.vmware.nsx.node
+$nodeSvc | Get-Member
+$nodeSvc.get()
+</code></pre>
+
+<p>Output Example:
+<img src="http://blogs.vmware.com/PowerCLI/files/2017/11/nsxtmod01.jpg" alt="NSX Manager Node Information Retrieval Example" /></p>
+
+<h2 id="example-retrieve-transport-zone-information">Example: Retrieve Transport Zone Information</h2>
+
+<p>In our second example, we will retrieve information about the configured Transport Zones. We can do this as easily as we did the NSX Manager node. Referring back to the <a href="https://code.vmware.com/web/dp/explorer-apis?id=222">VMware Code API Explorer for NSX-T</a>, we can search through the available namespaces for ‘transport zones’. We’ll find one in particular that has a description of ‘List Transport Zones’.</p>
+
+<p>Based on that information we can infer that the service name is going to end in ‘zones’. We’ll run the following command to find the service:</p>
+
+<pre><code>Get-NsxtService -Name *zones
+</code></pre>
+
+<p>We’ll then store the ‘com.vmware.nsx.transport_zones’ service into a variable. We’ll pipeline that variable to the ‘Get-Member’ cmdlet to find the available methods we can use. An example:</p>
+
+<pre><code>$tZoneSvc = Get-NsxtService -Name com.vmware.nsx.transport_zones
+$tZoneSvc | Get-Member
+</code></pre>
+
+<p>This service offers a couple methods which could fit our scenario of retrieving information about the environment’s Transport Zones. The methods available are a ‘get’ and a ‘list’. In order to perform the ‘get’, we would need to have the ID. Since we don’t have that information yet, we’ll run the ‘list’ method and store that into a variable with the following command:</p>
+
+<pre><code>$tZones = $tZoneSvc.list()
+</code></pre>
+
+<p>Refering to the ‘tZones’ variable we can see some information, but the info about the Transport Zones themselves are within the ‘results’ property. We can refer back to the ‘tZones’ variable but specifying the ‘results’ property and find the information we’re looking for.</p>
+
+<p>Combined Command Example:</p>
+
+<pre><code>Get-NsxtService -Name *zones
+$tZoneSvc = Get-NsxtService -Name com.vmware.nsx.transport_zones
+$tZoneSvc | Get-Member
+$tZones = $tZoneSvc.list()
+$tZones.results
+</code></pre>
+
+<p>Output Example:
+<img src="http://blogs.vmware.com/PowerCLI/files/2017/11/nsxtmod02.jpg" alt="Transport Zone Example" /></p>
+
+<h2 id="example-logical-switch-management">Example: Logical Switch Management</h2>
+
+<p>We have now covered much of the basics on how to get started, so let’s start doing some other tasks. In this example, we are going to list out the Logical Switches and then create a new one!</p>
+
+<p>First, we’ll retrieve information about our existing Logical Switches using the knowledge we built from the first two examples. This can be done with the following commands:</p>
+
+<pre><code>Get-NsxtService -Name *switches
+$logSwitchSvc = Get-NsxtService -Name com.vmware.nsx.logical_switches 
+$logSwitchSvc | Get-Member
+$logSwitches = $logSwitchSvc.list().results
+$logSwitches
+</code></pre>
+
+<p>Referring back to the output from the ‘Get-Member’ cmdlet, we noticed a ‘create’ method was available. This is where the ‘Help’ property is going to become very important. We can obtain some additional information about the requirements of the ‘create’ method by calling the variable’s ‘help’ property. We can also target the help for our example by further calling the ‘create’ property. We can do that with the following command:</p>
+
+<pre><code>$logSwitchSvc.Help.create
+</code></pre>
+
+<p>The output includes a lot of valuable information such as the required and optional parameters, expected output, potential errors, and so forth. The last property, ‘logical_switch’, is the important one. We can refer to this as the structure the ‘create’ method is looking for. We can take that a step further and actually create a specification based off of that information as well with the command:</p>
+
+<pre><code>$logSwitchSpec = $logSwitchSvc.Help.create.logical_switch.Create()
+</code></pre>
+
+<p>Checking the output of the variable ‘logSwitchSpec’ we can now see a PowerShell object that can be modified to be included as part of our ‘create’ action. The required parameters are the Logical Switch name, Transport Zone ID, and admin state. However, since this is an overlay logical switch, we can also specify the replication mode as noted in the &lsquo;Help&rsquo; output. We can make those modifications with the following commands:</p>
+
+<pre><code>$logSwitchSpec.admin_state = &quot;UP&quot;
+$logSwitchSpec.display\_name = &quot;PowerCLI\_Created_LS&quot;
+$logSwitchSpec.replication_mode = &quot;MTEP&quot;
+$logSwitchSpec.transport\_zone\_id = $tZones.results.id
+</code></pre>
+
+<p>Lastly, we will run the original ‘create’ method against the ‘logSwitchSvc’ variable. Example command:</p>
+
+<pre><code>$logSwitchSvc.create($logSwitchSpec)
+</code></pre>
+
+<p>Combined Command Example:</p>
+
+<pre><code>$logSwitchSvc = Get-NsxtService -Name com.vmware.nsx.logical_switches 
+$logSwitches = $logSwitchSvc.list().results
+$logSwitchSpec = $logSwitchSvc.Help.create.logical_switch.Create()
+$logSwitchSpec.admin_state = &quot;UP&quot;
+$logSwitchSpec.display\_name = &quot;PowerCLI\_Created_LS&quot;
+$logSwitchSpec.replication_mode = &quot;MTEP&quot;
+$logSwitchSpec.transport\_zone\_id = $tZones.results.id
+$logSwitchSvc.create($logSwitchSpec)
+</code></pre>
+
+<p>Example Output:
+<img src="http://blogs.vmware.com/PowerCLI/files/2017/11/nsxtmod03.jpg" alt="Logical Switch Creation Example" /></p>
+
+<h2 id="example-ip-pool-management">Example: IP Pool Management</h2>
+
+<p>The last example will be taking a look at managing IP Pools.</p>
+
+<p>Much like the prior examples, we’ll start by retrieving information about the existing IP Pools with the following commands:</p>
+
+<pre><code>$ipPoolSvc = Get-NsxtService -Name com.vmware.nsx.pools.ip_pools
+$ipPools = $ipPoolSvc.list().results
+$ipPools
+</code></pre>
+
+<p>However, we’d like the output to be a little more readable and include information which is nested within a property. This can be accomplished by using PowerShell’s ‘Format-Table’ cmdlet. We will take the ipPools variable output and pipeline that into the ‘Format-Table’ cmdlet. There we can use the ‘property’ parameter to specify only the properties that we are concerned with viewing.</p>
+
+<p>Command Example:</p>
+
+<pre><code>$ipPools | Format-Table -Autosize -Property id, display\_name,@{Name=&quot;Start\_IP&quot;;Expression={$_.subnets.allocation\_ranges.start}},@{Name=&quot;End\_IP&quot;;Expression={$_.subnets.allocation_ranges.end}}
+</code></pre>
+
+<p>Output Example:
+<img src="http://blogs.vmware.com/PowerCLI/files/2017/11/nsxtmod04.jpg" alt="IP Pool Information Retrieval Example" /></p>
+
+<p>With our custom output, we realize there happens to be an IP Pool which doesn’t have any IPs assigned to it. We&rsquo;ll want to remove that IP Pool so someone doesn’t try to use it. Performing a ‘Get-Member’ against the ipPoolSvc variable, we see there’s a ‘delete’ method we can use to remove that unneeded IP Pool. To find more information about what the method requires, we can call the ipPoolSvc’s ‘Help’ property and even further specify the ‘delete’ property. There we can see the IP Pool’s ID is the only required input while the ‘force’ input is optional. We are then ready to use the ‘delete’ method with the following commands:</p>
+
+<pre><code>$ipPoolSvc | Get-Member
+$ipPoolSvc.Help.delete
+$ipPoolRemove = $ipPools | Where-Object {$_.display_name -eq &quot;API-POOL&quot;}
+$ipPoolSvc.delete($ipPoolRemove.id)
+</code></pre>
+
+<p>Output Example:
+<img src="http://blogs.vmware.com/PowerCLI/files/2017/11/nsxtmod05.jpg" alt="IP Pool Removal Example" /></p>
+
+<h2 id="summary">Summary</h2>
+
+<p>PowerCLI 6.5.3 introduced a great new module to manage VMware NSX-T environments. In the NSX-T module&rsquo;s current release, it has three cmdlets to connect and disconnect from the NSX Manager while the third is used to interact directly with the NSX-T API. This blog post went through several examples including retrieving information about the NSX Manager node, Transport Zones, Logical Switches, and IP pools. We then took a look at using the API access to create a logical switch and remove an IP Pool.</p>
+
+</div>
+            <div class="footer">
+                <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script type="text/javascript">
+    hljs.configure({languages: []});
+    hljs.initHighlightingOnLoad();
+</script>
+
+    
+
+            </div>
+        </div>
+        
+        
+    </body>
+</html>

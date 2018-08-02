@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" class="wf-firasans-n4-active wf-active">
+	<head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Enable responsiveness on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    <meta name="generator" content="Hugo 0.37.1" />
+    
+    <title>PowerCLI - VMware Cloud on AWS - Deploy One Host SDDC &middot; </title>
+    <meta content="PowerCLI - VMware Cloud on AWS - Deploy One Host SDDC - " property="og:title">
+    <meta content=" - " property="og:description">
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif:300,300i,400,400i,700,700i|Source+Code+Pro:300,300i,400,400i" rel="stylesheet">
+    <link rel="stylesheet" href="https://kmruddy.github.iocss/print.css" media="print">
+    <link rel="stylesheet" href="https://kmruddy.github.iocss/poole.css">
+    <link rel="stylesheet" href="https://kmruddy.github.iocss/hyde.css">
+    <!-- Font-Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+    <!-- highlight.js-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <!-- Customised CSS -->
+    <link rel="stylesheet" href="https://kmruddy.github.iocss/custom.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    
+
+	</head>
+    <body class=" ">
+        <div class="sidebar">
+  <div class="container text-center ">
+    <div class="sidebar-about text-center">
+      <a href="https://kmruddy.github.io"> <img src="/img/kmr.jpg" alt="Author Image" class="img-circle headshot center"> </a>
+      <a href="https://kmruddy.github.io"><h1 class="brand">kmruddy.com</h1></a>
+      <p class="lead">
+         My notes and ramblings, normally about automation 
+      </p>
+    </div>
+    <p>
+      <section class="row text-center">
+	
+	<a href="https://twitter.com/kmruddy"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	&nbsp;<a href="https://github.com/kmruddy"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	&nbsp;<a href="https://linkedin.com/in/kmruddy"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a>
+	
+	
+	&nbsp;<a href="https://stackoverflow.com/users/kmruddy"><i class="fab fa-stack-overflow fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+</section>
+
+    </p>
+    <p>
+      
+<div>
+	<ul class="sidebar-nav">
+		
+		
+				<li>
+					<a href="/"> <span>Home</span></a>
+				</li>
+				<li>
+					<a href="/about/"> <span>About</span></a>
+				</li>
+				<li>
+					<a href="/catagories/posh"> <span>PowerShell</span></a>
+				</li>
+				<li>
+					<a href="/catagories/pcli"> <span>PowerCLI</span></a>
+				</li>
+				<li>
+					<a href="/catagories/vbrownbag"> <span>vBrownBag</span></a>
+				</li>
+		</li>
+	</ul>
+</div>
+
+    </p>
+    <p class="copyright">&copy; 2018 Kyle Ruddy.<br />
+      <a href="https://creativecommons.org/licenses/by/4.0">Some Rights Reserved</a>.<br/>Built with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
+    </p>
+  </div>
+  <div>
+  </div>
+</div>
+
+        <div class="content container">
+            <div class="post">
+  <h1>PowerCLI - VMware Cloud on AWS - Deploy One Host SDDC</h1>
+  
+  <div class="col-sm-12 col-md-12">
+    <span class="text-left post-date meta">
+            
+       
+        <i class="fas fa-calendar-alt"></i> Jun 20, 2018
+      
+      
+      
+      
+        
+        
+            <br/>
+             <i class="fas fa-tags"></i>
+            
+            <a class="meta" href="/tags/aws">aws</a> 
+        
+            <a class="meta" href="/tags/powercli">powercli</a> 
+        
+            <a class="meta" href="/tags/vmware">vmware</a>
+        
+      
+      
+      <br/>
+      <i class="fas fa-clock"></i> 3 min read 
+      </span>  
+  </div>    
+  
+  
+
+<p>The latest release of VMware Cloud on AWS introduces a brand-new deployment configuration. We can now deploy an SDDC which consists of a single host! This is exciting for many reasons, but biggest reason for me is being able to access all the APIs without occupying the standard minimum SDDC footprint of four hosts. More information on the One Host release is available here: <a href="https://cloud.vmware.com/vmc-aws/single-host-access">VMware Cloud on AWS – Single Host Access</a></p>
+
+<p>We’re going to take a quick look at how we can quickly and easily deploy one of these 1 host SDDCs with PowerCLI.</p>
+
+<h2 id="aws-customer-account-linking">AWS Customer Account Linking</h2>
+
+<p>If this is the first time you’re deploying an SDDC, you will need to link your AWS account to the VMware Cloud on AWS service. This linking allows us to do many things but, for the purpose of an SDDC deployment, it will allow us to connect our SDDC to our existing AWS VPC. The easiest way to create this link is by logging in to the VMware Cloud on AWS Cloud Console, heading to the ‘Developer Center’ tab from the top menu, then the ‘API Explorer’ sub-tab. We will then want to expand the ‘AWS Account Connection Operations’ section, followed by also expanding the ‘GET /orgs/{org}/account-link’ section. After verifying the ‘org’ parameter already has a value set, click the ‘Execute’ button.</p>
+
+<p><a href="http://blogs.vmware.com/code/files/2018/06/1n_deploy01.jpg"><img src="http://blogs.vmware.com/code/files/2018/06/1n_deploy01-1024x857.jpg" alt="VMWonAWS - Account Linking API Usage" /></a></p>
+
+<p>We’ll want to then copy the URL associated with the ‘template_execution_url’ and paste it into our browser of choice. This URL take us to AWS’ CloudFormation service and run through a template that will configure the account linking on our behalf.</p>
+
+<p><a href="http://blogs.vmware.com/code/files/2018/06/1n_deploy02.jpg"><img src="http://blogs.vmware.com/code/files/2018/06/1n_deploy02.jpg" alt="VMWonAWS - Account Linking API Usage" /></a></p>
+
+<p>We’re now ready to start deploying our SDDC with the method of our choice!</p>
+
+<h2 id="powercli-deployment">PowerCLI Deployment</h2>
+
+<p>PowerCLI has the ability to interact with the VMware Cloud on AWS APIs through a low-level, API access only, module. The following script makes the process of deploying a single node SDDC easy and straightforward. Download the sample script below, update lines 9 through 12 with values for your environment, and run the script!</p>
+
+<pre><code># Author: Kyle Ruddy
+# Product: VMware Cloud on AWS
+# Description: VMware Cloud on AWS Single Host Deployment Script using PowerCLI
+# Requirements:
+#  - PowerShell 3.x or newer
+#  - PowerCLI 6.5.4 or newer
+
+# Set details for SDDC
+$oauthToken = &quot;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx&quot;
+$sddcName = &quot;PowerCLI-1Node-SDDC&quot;
+$hostCount = &quot;1&quot;
+$awsRegion = &quot;US_WEST_2&quot;
+
+# --- Deployment code  ---
+# Connect to VMware Cloud Service
+Connect-Vmc -RefreshToken $oauthToken | Out-Null
+
+# Get ORG ID
+$orgSvc = Get-VmcService -Name com.vmware.vmc.orgs
+$org = $orgSvc.List()
+Write-Host &quot;Org:&quot;$org.display_name&quot; ID:&quot;$org.id
+
+# Get Linked Account ID
+$connAcctSvc = Get-VmcService -Name com.vmware.vmc.orgs.account_link.connected_accounts
+$connAcctId = $connAcctSvc.get($org.id) | Select-Object -ExpandProperty id
+Write-Host &quot;Account ID: $connAcctId&quot;
+
+# Get Subnet ID
+$compSubnetSvc = Get-VmcService -Name com.vmware.vmc.orgs.account_link.compatible_subnets
+$vpcMap = $compSubnetSvc.Get($org.id, $connAcctId, $region) | Select-Object -ExpandProperty vpc_map 
+$compSubnets = $vpcMap | Select-Object -ExpandProperty Values | Select-Object -ExpandProperty subnets
+$compSubnet = $compSubnets | where {$_.name -ne $null} | Select-Object -first 1
+Write-Host &quot;Subnet CIDR&quot;$compSubnet.subnet_cidr_block&quot;ID:&quot;$compSubnet.subnet_id
+
+# Deploy the SDDC
+$sddcSvc = Get-VmcService com.vmware.vmc.orgs.sddcs
+$sddcCreateSpec = $sddcSvc.Help.create.sddc_config.Create()
+$sddcCreateSpec.region = $awsRegion
+$sddcCreateSpec.Name = $sddcName
+$sddcCreateSpec.num_hosts = $hostCount
+if ($org.properties.values.sddcTypes) {$sddcCreateSpec.sddc_type = &quot;1NODE&quot;}
+$sddcCreateSpec.Provider = &quot;AWS&quot;
+$accountLinkSpec = $sddcSvc.Help.create.sddc_config.account_link_sddc_config.Element.Create()
+$accountLinkSpec.connected_account_id = $connAcctId
+$custSubId0 = $sddcSvc.Help.create.sddc_config.account_link_sddc_config.Element.customer_subnet_ids.Element.Create()
+$custSubId0 = $compSubnet.subnet_id
+$accountLinkSpec.customer_subnet_ids.Add($custSubId0) | Out-Null
+$sddcCreateSpec.account_link_sddc_config.Add($accountLinkSpec) | Out-Null
+$sddcCreateSpec
+$newSddc = $sddcSvc.create($org.Id, $sddcCreateSpec)
+$newSddc
+</code></pre>
+
+<p>The script can also be found on the VMware Code Sample Exchange site: <a href="https://code.vmware.com/samples?id=4197">VMware on AWS - 1 Node SDDC Deployment</a></p>
+
+<h2 id="summary">Summary</h2>
+
+<p>The latest update to VMware Cloud on AWS brings a great new way to access all the features, services, and APIs the service has available, just in a smaller footprint. These one host SDDCs can be deployed and managed the same way as standard SDDCs. This blog post took a look at how to use PowerCLI to deploy this new configuration.</p>
+
+</div>
+            <div class="footer">
+                <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script type="text/javascript">
+    hljs.configure({languages: []});
+    hljs.initHighlightingOnLoad();
+</script>
+
+    
+
+            </div>
+        </div>
+        
+        
+    </body>
+</html>

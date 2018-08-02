@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Aws on </title>
+    <link>https://kmruddy.github.io/tags/aws/</link>
+    <description>Recent content in Aws on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 24 Jul 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://kmruddy.github.io/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>REST - Configuring VCSA Backups</title>
+      <link>https://kmruddy.github.io/posts/2018/rest-vcsa-backup/</link>
+      <pubDate>Tue, 24 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/posts/2018/rest-vcsa-backup/</guid>
+      <description>Did you know the vCenter Server Appliance (VCSA) has file-based backup options?
+This ability was actually released in vSphere 6.5. However, there was one feature in particular that was missing: a scheduler. I&amp;rsquo;m happy to say that as part of vSphere 6.7, the VCSA received a backup scheduler!
+Recently, my teammate, Emad Younis released a couple cool walkthroughs to the vSphere Central site to manage file-based backup and restore actions.</description>
+    </item>
+    
+    <item>
+      <title>REST - Configuring VMware Cloud on AWS EDRS Policies</title>
+      <link>https://kmruddy.github.io/posts/2018/rest-vmwonaws-edrs-usage/</link>
+      <pubDate>Tue, 17 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/posts/2018/rest-vmwonaws-edrs-usage/</guid>
+      <description>There’s been a new batch of features released for VMware Cloud on AWS!
+While there’s a lot of important new features, there’s one in particular I’d like to focus on. This new feature is called Elastic DRS (EDRS). EDRS allows you to automatically right-size your SDDC for the current workload demand and do it all by way of a policy. Even better, there are RESTful APIs to help you automate the configuration of this policy!</description>
+    </item>
+    
+    <item>
+      <title>PowerShell - Inviting Users to VMware Cloud on AWS Org</title>
+      <link>https://kmruddy.github.io/posts/2018/posh-invite-users-vmwonaws/</link>
+      <pubDate>Fri, 29 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/posts/2018/posh-invite-users-vmwonaws/</guid>
+      <description>Recently, VMware Cloud on AWS announced the ability to create an SDDC with a single host. This is a pretty exciting update, one many of our users have been asking for. Along with the ability to deploy an SDDC in a much smaller footprint, you get access to all the automation and developer resources available such as the built-in Developer Center and the RESTful APIs.
+In a post on the VMware Code blog, Automating VMware Cloud on AWS One Host SDDC Deployments, some code samples were debuted by Alan Renouf and myself to deploy a single host SDDC using direct REST calls, PowerCLI, and DCLI.</description>
+    </item>
+    
+    <item>
+      <title>PowerCLI - VMware Cloud on AWS - Deploy One Host SDDC</title>
+      <link>https://kmruddy.github.io/posts/2018/pcli-vmwonaws-deploy-one-host/</link>
+      <pubDate>Wed, 20 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/posts/2018/pcli-vmwonaws-deploy-one-host/</guid>
+      <description>The latest release of VMware Cloud on AWS introduces a brand-new deployment configuration. We can now deploy an SDDC which consists of a single host! This is exciting for many reasons, but biggest reason for me is being able to access all the APIs without occupying the standard minimum SDDC footprint of four hosts. More information on the One Host release is available here: VMware Cloud on AWS – Single Host Access</description>
+    </item>
+    
+    <item>
+      <title>REST - VMware Cloud on AWS - Deploy One Host SDDC</title>
+      <link>https://kmruddy.github.io/posts/2018/rest-vmwonaws-deploy-one-host/</link>
+      <pubDate>Wed, 20 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/posts/2018/rest-vmwonaws-deploy-one-host/</guid>
+      <description>The latest release of VMware Cloud on AWS introduces a brand-new deployment configuration. We can now deploy an SDDC which consists of a single host! This is exciting for many reasons, but biggest reason for me is being able to access all the APIs without occupying the standard minimum SDDC footprint of four hosts. More information on the One Host release is available here: VMware Cloud on AWS – Single Host Access</description>
+    </item>
+    
+    <item>
+      <title>Python - Using the vSphere Automation SDK with VMware Cloud on AWS</title>
+      <link>https://kmruddy.github.io/posts/2018/python-sdk-for-vmwonaws/</link>
+      <pubDate>Mon, 26 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/posts/2018/python-sdk-for-vmwonaws/</guid>
+      <description>The vSphere Automation SDK for Python has recently received some exciting updates. These updates add the ability to easily develop against and automate VMware Cloud on AWS! There are even samples to list organization information, manage SDDCs, and lots of networking functionality!
+Let’s take a look at how to easily get started with this SDK on a MacOS system. Before diving in though, there are a couple prerequisites we’ll need to download and install.</description>
+    </item>
+    
+    <item>
+      <title>PowerCLI - VMware Cloud on AWS Module Usage</title>
+      <link>https://kmruddy.github.io/posts/2018/pcli-vmwonaws-module-usage/</link>
+      <pubDate>Tue, 20 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/posts/2018/pcli-vmwonaws-module-usage/</guid>
+      <description>VMware Cloud on AWS is a new on-demand service that enables you to run applications across vSphere-based environments plus access to a broad range of AWS services. PowerCLI already helps to automate your VMware Cloud on AWS tasks! This includes tasks such as creating SDDCs, adding or removing ESXi hosts, managing firewall rules, and so forth. The VMware Cloud on AWS (VMC) module was released as a low-level, API access only, module and will feature the following cmdlets:</description>
+    </item>
+    
+  </channel>
+</rss>

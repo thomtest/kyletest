@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" class="wf-firasans-n4-active wf-active">
+	<head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Enable responsiveness on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    <meta name="generator" content="Hugo 0.37.1" />
+    
+    <title>REST - Using the vSphere Automation SDK &middot; </title>
+    <meta content="REST - Using the vSphere Automation SDK - " property="og:title">
+    <meta content=" - " property="og:description">
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif:300,300i,400,400i,700,700i|Source+Code+Pro:300,300i,400,400i" rel="stylesheet">
+    <link rel="stylesheet" href="https://kmruddy.github.iocss/print.css" media="print">
+    <link rel="stylesheet" href="https://kmruddy.github.iocss/poole.css">
+    <link rel="stylesheet" href="https://kmruddy.github.iocss/hyde.css">
+    <!-- Font-Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+    <!-- highlight.js-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <!-- Customised CSS -->
+    <link rel="stylesheet" href="https://kmruddy.github.iocss/custom.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    
+
+	</head>
+    <body class=" ">
+        <div class="sidebar">
+  <div class="container text-center ">
+    <div class="sidebar-about text-center">
+      <a href="https://kmruddy.github.io"> <img src="/img/kmr.jpg" alt="Author Image" class="img-circle headshot center"> </a>
+      <a href="https://kmruddy.github.io"><h1 class="brand">kmruddy.com</h1></a>
+      <p class="lead">
+         My notes and ramblings, normally about automation 
+      </p>
+    </div>
+    <p>
+      <section class="row text-center">
+	
+	<a href="https://twitter.com/kmruddy"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	&nbsp;<a href="https://github.com/kmruddy"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	&nbsp;<a href="https://linkedin.com/in/kmruddy"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a>
+	
+	
+	&nbsp;<a href="https://stackoverflow.com/users/kmruddy"><i class="fab fa-stack-overflow fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+</section>
+
+    </p>
+    <p>
+      
+<div>
+	<ul class="sidebar-nav">
+		
+		
+				<li>
+					<a href="/"> <span>Home</span></a>
+				</li>
+				<li>
+					<a href="/about/"> <span>About</span></a>
+				</li>
+				<li>
+					<a href="/catagories/posh"> <span>PowerShell</span></a>
+				</li>
+				<li>
+					<a href="/catagories/pcli"> <span>PowerCLI</span></a>
+				</li>
+				<li>
+					<a href="/catagories/vbrownbag"> <span>vBrownBag</span></a>
+				</li>
+		</li>
+	</ul>
+</div>
+
+    </p>
+    <p class="copyright">&copy; 2018 Kyle Ruddy.<br />
+      <a href="https://creativecommons.org/licenses/by/4.0">Some Rights Reserved</a>.<br/>Built with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
+    </p>
+  </div>
+  <div>
+  </div>
+</div>
+
+        <div class="content container">
+            <div class="post">
+  <h1>REST - Using the vSphere Automation SDK</h1>
+  
+  <div class="col-sm-12 col-md-12">
+    <span class="text-left post-date meta">
+            
+       
+        <i class="fas fa-calendar-alt"></i> Feb 2, 2017
+      
+      
+      
+      
+        
+        
+            <br/>
+             <i class="fas fa-tags"></i>
+            
+            <a class="meta" href="/tags/rest">rest</a> 
+        
+            <a class="meta" href="/tags/vmware">vmware</a>
+        
+      
+      
+      <br/>
+      <i class="fas fa-clock"></i> 8 min read 
+      </span>  
+  </div>    
+  
+  
+
+<p>vSphere 6.5 introduced a big update to its newest API service, which is known as the vSphere Automation API. This API is a big step forward in the process of simplifying and modernizing our APIs. This service also allows us to introduce several new SDKs for the following programming languages: Java, Python, .NET, Perl, Ruby, and REST. This blog will take a look at the REST SDK and how to easily get started using it.</p>
+
+<p>For more information about what was introduced with the vSphere Automation APIs, check out the associated <a href="https://blogs.vmware.com/developer/2016/10/whats-new-developer-automation-interfaces-65.html">What’s New blog post</a>.</p>
+
+<h2 id="accessing-the-sdk">Accessing the SDK</h2>
+
+<p>First things first, we need to gain access to the vSphere Automation SDK for REST from VMware’s GitHub repository: <a href="https://github.com/vmware/vsphere-automation-sdk-rest">https://github.com/vmware/vsphere-automation-sdk-rest</a> Make sure to read through the README, noting that we&rsquo;ll be able to view and use these resources, as well as contribute back to the following items:</p>
+
+<ul>
+<li>vSphere Automation SDK for REST API Reference Documentation</li>
+<li>Postman Samples</li>
+<li>Javascript Samples (<a href="https://blogs.vmware.com/code/2017/02/15/getting-started-vsphere-automation-sdk-rest-p2">we&rsquo;ll cover these here, as part two</a>)</li>
+</ul>
+
+<p>The easiest method is now to either download or clone the repository.</p>
+
+<p>Downloading can be done as follows:</p>
+
+<ol>
+<li>Click on the green “Clone or Download” button and then click “Download ZIP”</li>
+<li>Once downloaded, extract the zip file to the location of your choosing</li>
+<li>At this point, you will now have a local copy of the repository</li>
+</ol>
+
+<p>Cloning can be done as follows by CLI:</p>
+
+<ol>
+<li>Click on the green “Clone or Download” button and then copy the clone URL</li>
+<li>Within Terminal, change to the appropriate directory, and enter the following command: git clone [Copied URL]</li>
+<li>Once the tasks complete, you will now have a local copy of the repository</li>
+</ol>
+
+<p><img src="http://blogs.vmware.com/code/files/2017/02/GCLI_Clone.png" alt="git CLI Clone Process" /></p>
+
+<p>Cloning can also be done through the GitHub Desktop client as follows:</p>
+
+<ol>
+<li>Click on the green “Clone or Download” button and then click “Open in Desktop”</li>
+<li>Within the newly opened “Clone As” window, select the appropriate directory and name, then select “Clone”</li>
+</ol>
+
+<p><img src="http://blogs.vmware.com/code/files/2017/02/GHD_Clone.png" alt="GitHub Desktop Clone Process" /></p>
+
+<h2 id="documentation">Documentation</h2>
+
+<p>The documentation for this SDK has improved so much it deserves its own section. The documentation is just clean and straight forward. Looking at it from a high level, you can browse each API and see the sections of what the underlying operations cover. Each of the operations list the method, URL, and a brief description of what it’s used for. To receive some more in-depth information, click on the operation’s method. Here you’ll see all the information needed in order to perform the request including the request parameters, response codes, JSON and XML response representations, followed by a table of what those response types mean, and it also covers the error codes.</p>
+
+<p><img src="http://blogs.vmware.com/code/files/2017/02/vapi_sdkdocumentation.png" alt="vSphere Automation Documentation Example" /></p>
+
+<h2 id="install-postman">Install Postman</h2>
+
+<p>One of the most convenient ways to get started using this SDK is with the Postman application. If you’ve never heard of Postman, it is a simple and free REST API client. It can be installed on Windows, OSX, and Linux (although this is currently a beta install). While there is a Chrome app, we have found the best experience is with the full client application.</p>
+
+<p>Postman can be downloaded at the following link: <a href="https://www.getpostman.com/apps">https://www.getpostman.com/apps</a></p>
+
+<h2 id="initial-setup">Initial Setup</h2>
+
+<p>At this point we have the SDK downloaded and the recommended client installed, so let’s get Postman setup with everything needed to work with the SDK.</p>
+
+<p>First, start by importing the collections which were downloaded as part of the SDK. This can be done by clicking the “Import” button. On the new screen, with “Import File” selected, click the orange “Choose Files” button, browse to the location where you unzipped the SDK and then navigate to: client\samples\postman. Select the two JSON files in the directory titled:</p>
+
+<ul>
+<li>vSphere-Automation-Rest-API-Resources.postman.json</li>
+<li>vSphere-Automation-Rest-API-Samples.postman.json</li>
+</ul>
+
+<p><img src="http://blogs.vmware.com/code/files/2017/02/vapi_sdkimport.png" alt="vSphere Automation Postman Collection Import" /></p>
+
+<p>We’ll now notice two new collections which are named quite similarly to the files imported. The vSphere Automation REST Resources collection is a number of requests, grouped in folders by their object level, that can be performed against a vSphere environment. The vSphere Automation REST Samples is a couple groups of requests which can be combined to perform a normal task. Some of the examples include ESXi host connection and disconnection, VM creation, and VM power actions.</p>
+
+<p>Last part of setup comes down to configuring some environmental variables. As you begin browsing through the requests, you’ll start noticing some double curly brackets that may look like this: {{vc}} This is what’s known as an environmental variable within Postman, and vc will be used to refer to the vCenter Server. There’s only a couple environmental variables which need to be set in order to begin: vc, user, password. Those are fairly self-explanatory, so let’s set them up in Postman.</p>
+
+<p>To begin creating environmental variables, head towards the gear icon in the top right hand side and click on it. This is where environments are managed. Add a new environment by clicking on the orange “Add” button. Give the environment a name, then enter in those three items mentioned above and valid values for your environment. Click the orange “Add” button again to complete the creation, and click on the “X” to the right of “Manage Environments” to close the window.</p>
+
+<p><img src="http://blogs.vmware.com/code/files/2017/02/vapi_sdkenvvariables.png" alt="vSphere Automation Postman Environmental Variables" /></p>
+
+<h2 id="getting-authenticated">Getting Authenticated</h2>
+
+<p>As with all vSphere environments, the first step is to authenticate. Expand the vSphere Automation REST Resources collection, expand the Authentication folder, and select Login.</p>
+
+<p><img src="http://blogs.vmware.com/code/files/2017/02/vapi_sdkauth.png" alt="vSphere Automation Postman Authentication" /></p>
+
+<p>We can gather a bit of information about the request at this point. We’ll be doing a Post method to the vCenter’s URL of /rest/com/cmware/cis/session with a basic authentication type and sourcing the username and password from our environmental variables. Before making the request, make sure to select the environment that was just created by selecting it via dropdown box next to the gear icon on the top right hand side.</p>
+
+<p><img src="http://blogs.vmware.com/code/files/2017/02/vapi_sdksession.png" alt="vSphere Automation Postman Session Info" /></p>
+
+<p><strong>NOTE</strong>: If you have any issues, you may need to turn off SSL certificate verification in the Settings (File &gt; Settings &gt; General tab &gt; SSL certificate verification, turn off, restart Postman)</p>
+
+<h2 id="environment-discovery">Environment Discovery</h2>
+
+<p>We’re now authenticated to the vCenter’s API endpoint, so we can start exploring some other areas within the vSphere Automation REST Resources section. Let’s do some environmental discovery while we’re still exploring the SDK. To get a list of the hosts available by this vCenter’s API endpoint, expand the Hosts folder and select List. Here we can see the request uses a Get method to the vCenter’s URL of /rest/vcenter/host. Clicking “Send” will give us a list of the hosts available as well as some basic information such as the host ID, name, connection state, and power state.</p>
+
+<p><img src="http://blogs.vmware.com/code/files/2017/02/vapi_sdkhostlist.png" alt="vSphere Automation Postman Host List" /></p>
+
+<p>To get a list of the datastores available by this vCenter’s API endpoint, expand the Datastores folder and select List. This request is very similar to the last request, except it points to the vCenter’s URL of /rest/vcenter/datastore. Clicking “Send” will give us a list of the datastores available as well as their datastore ID, name, type, free space and capacity.</p>
+
+<p><img src="http://blogs.vmware.com/code/files/2017/02/vapi_sdkdslist.png" alt="vSphere Automation Postman Datastore List" /></p>
+
+<p>To get a list of the VMs available by this vCenter’s API endpoint, expand the VM folder and select List. At this point, hopefully you can figure out what the request is going to look like and a rough guess at what information is going to be pulled back.</p>
+
+<p><img src="http://blogs.vmware.com/code/files/2017/02/vapi_sdkvmlist.png" alt="vSphere Automation Postman VM List" /></p>
+
+<p>We’ve got the basics down now, how about getting into some additional detail on a VM. In the VM folder, select the Details. In the URL, we’re just appending the VM’s ID to the end of the prior call. The example includes ‘vm-22’ which can be modified to a VM ID as identified in the prior request. Clicking on “Send” retrieves a ton of information back about the configuration settings for that VM including CPU information, NICs, boot configuration, and so forth.</p>
+
+<p><img src="http://blogs.vmware.com/code/files/2017/02/vapi_sdkvmdetails01.png" alt="vSphere Automation Postman VM Details" /></p>
+
+<h2 id="vm-creation">VM Creation</h2>
+
+<p>Last example, creating a VM. We’ve just seen all of the configuration settings for a VM, however we don’t need to have all of those to create a VM with this SDK. The API endpoint has the capability of setting those options automatically per best practices and VMware’s guidance. These decisions are all based on the guest OS type.</p>
+
+<p>We’ll start by selecting the “Create with defaults” option. Notice the familiar URL, however we’re performing a Post method on it this time. Switching over to the “Body” section, we can see some items have already been filled in for us like Guest OS type, datastore, folder, and resource pool. These are the basics in order to perform this request.</p>
+
+<p>Once those options have been filled in with valid values for your environment, click the blue “Send” button to create the VM.</p>
+
+<p><img src="http://blogs.vmware.com/code/files/2017/02/vapi_sdkvmcreate.png" alt="vSphere Automation Postman VM Creation" /></p>
+
+<p>You should see a response that resembles a VM ID. Run the VM Details request again, only this time substituting the new VM’s ID in the request URL. Scrolling through the response’s body, take note of many of the areas which were populated automatically. Things like memory, disk size, SCSI controller, even the name were all populated automatically.</p>
+
+<p><img src="http://blogs.vmware.com/code/files/2017/02/vapi_sdkvmdetails.png" alt="vSphere Automation Postman VM Details" /></p>
+
+<p>If you’ve done this through the API before, this is a tremendous improvement! If there are additional things you’d like to specify, that’s possible as well. If you want to populate the settings for all of those items, that too is possible. It is all about the user’s choice.</p>
+
+<h2 id="wrapping-up">Wrapping Up</h2>
+
+<p>We just scratched the surface on what’s possible with this SDK and Postman. There’s many more areas to check out and explore. There’s also the samples collection to take a look at too.</p>
+
+</div>
+            <div class="footer">
+                <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script type="text/javascript">
+    hljs.configure({languages: []});
+    hljs.initHighlightingOnLoad();
+</script>
+
+    
+
+            </div>
+        </div>
+        
+        
+    </body>
+</html>

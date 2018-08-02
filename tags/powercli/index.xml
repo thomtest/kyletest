@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Powercli on </title>
+    <link>https://kmruddy.github.io/tags/powercli/</link>
+    <description>Recent content in Powercli on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 10 Jul 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://kmruddy.github.io/tags/powercli/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>PowerCLI - Configuring VCSA Backups</title>
+      <link>https://kmruddy.github.io/posts/2018/pcli-vcsa-backup/</link>
+      <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/posts/2018/pcli-vcsa-backup/</guid>
+      <description>Did you know the vCenter Server Appliance (VCSA) has file-based backup options? This ability was actually released in vSphere 6.5. However, there was one feature in particular that was missing: a scheduler. I&amp;rsquo;m happy to say that as part of vSphere 6.7, the VCSA received a backup scheduler!
+Recently, my teammate, Emad Younis released a couple cool walkthroughs to the vSphere Central site to manage file-based backup and restore actions.</description>
+    </item>
+    
+    <item>
+      <title>PowerCLI - VMware Cloud on AWS - Deploy One Host SDDC</title>
+      <link>https://kmruddy.github.io/posts/2018/pcli-vmwonaws-deploy-one-host/</link>
+      <pubDate>Wed, 20 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/posts/2018/pcli-vmwonaws-deploy-one-host/</guid>
+      <description>The latest release of VMware Cloud on AWS introduces a brand-new deployment configuration. We can now deploy an SDDC which consists of a single host! This is exciting for many reasons, but biggest reason for me is being able to access all the APIs without occupying the standard minimum SDDC footprint of four hosts. More information on the One Host release is available here: VMware Cloud on AWS – Single Host Access</description>
+    </item>
+    
+    <item>
+      <title>PowerCLI - Configuring Per-VM EVC</title>
+      <link>https://kmruddy.github.io/posts/2018/pcli-config-per-vm-evc/</link>
+      <pubDate>Mon, 21 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/posts/2018/pcli-config-per-vm-evc/</guid>
+      <description>vSphere 6.7 was released a couple weeks ago and there were a ton of new features announced. However, there was one feature I was particularly interested in and that was Per-VM EVC (Enhanced vMotion Compatibility).
+Giving a brief, high-level overview, EVC can be used to set a baseline of CPU features available to a VM or a set of VMs. In the past, this was a cluster-based setting. It was really nice because you could take hosts which didn’t have the same CPUs, use EVC to apply a common CPU baseline, and still put them in a cluster to take advantage of features like DRS and HA.</description>
+    </item>
+    
+    <item>
+      <title>PowerCLI - MacOS Installation</title>
+      <link>https://kmruddy.github.io/posts/2018/pcli-install-macos/</link>
+      <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/posts/2018/pcli-install-macos/</guid>
+      <description>PowerCLI 10.0.0 was released just a few weeks ago and one of the key updates was the added support for MacOS and Linux operating systems. It’s still amazing to think about! PowerShell and PowerCLI available to users on OSes other than just Windows. Wow!
+Let’s put this to action and get PowerCLI installed on a MacOS system.
+Prerequisite: Installing PowerShell Core – Package The minimally required version for MacOS is PowerShell Core 6.</description>
+    </item>
+    
+    <item>
+      <title>PowerCLI - VMware Cloud on AWS Module Usage</title>
+      <link>https://kmruddy.github.io/posts/2018/pcli-vmwonaws-module-usage/</link>
+      <pubDate>Tue, 20 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/posts/2018/pcli-vmwonaws-module-usage/</guid>
+      <description>VMware Cloud on AWS is a new on-demand service that enables you to run applications across vSphere-based environments plus access to a broad range of AWS services. PowerCLI already helps to automate your VMware Cloud on AWS tasks! This includes tasks such as creating SDDCs, adding or removing ESXi hosts, managing firewall rules, and so forth. The VMware Cloud on AWS (VMC) module was released as a low-level, API access only, module and will feature the following cmdlets:</description>
+    </item>
+    
+    <item>
+      <title>PowerCLI - Community Module - VMware Tools</title>
+      <link>https://kmruddy.github.io/posts/2018/pcli-vmware-tools-module/</link>
+      <pubDate>Tue, 09 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/posts/2018/pcli-vmware-tools-module/</guid>
+      <description>VMware Tools is a collection of in-guest drivers and agents that optimize performance and increase the manageability for VMs within vSphere environments. Guess what, PowerCLI provides a way to automate the management of the VMware Tools lifecycle! Even better, a new module was recently entered into the PowerCLI Community Repository to help make those management tasks even easier than before!
+The module includes a collection of over 10 different advanced functions!</description>
+    </item>
+    
+    <item>
+      <title>PowerCLI - NSX-T Module Usage</title>
+      <link>https://kmruddy.github.io/posts/2017/pcli-nsxt-module-usage/</link>
+      <pubDate>Tue, 28 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/posts/2017/pcli-nsxt-module-usage/</guid>
+      <description>PowerCLI 6.5.3 was released a few short weeks ago and one of the biggest additions was the module to manage VMware NSX-T! This version of NSX provides network virtualization to not only VMware environments, but also multi-cloud and multi-hypervisor environments too.
+Before diving into the module itself, there are a couple things we should cover first. This module was released as a low-level, API access only, module. That means the module comes with the following cmdlets: Connect-NsxtServer, Disconnect-NsxtServer, and Get-NsxtService.</description>
+    </item>
+    
+  </channel>
+</rss>

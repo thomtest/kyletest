@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" class="wf-firasans-n4-active wf-active">
+	<head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Enable responsiveness on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    <meta name="generator" content="Hugo 0.37.1" />
+    
+    <title>PowerCLI - Configuring Per-VM EVC &middot; </title>
+    <meta content="PowerCLI - Configuring Per-VM EVC - " property="og:title">
+    <meta content=" - " property="og:description">
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif:300,300i,400,400i,700,700i|Source+Code+Pro:300,300i,400,400i" rel="stylesheet">
+    <link rel="stylesheet" href="https://kmruddy.github.iocss/print.css" media="print">
+    <link rel="stylesheet" href="https://kmruddy.github.iocss/poole.css">
+    <link rel="stylesheet" href="https://kmruddy.github.iocss/hyde.css">
+    <!-- Font-Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+    <!-- highlight.js-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <!-- Customised CSS -->
+    <link rel="stylesheet" href="https://kmruddy.github.iocss/custom.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    
+
+	</head>
+    <body class=" ">
+        <div class="sidebar">
+  <div class="container text-center ">
+    <div class="sidebar-about text-center">
+      <a href="https://kmruddy.github.io"> <img src="/img/kmr.jpg" alt="Author Image" class="img-circle headshot center"> </a>
+      <a href="https://kmruddy.github.io"><h1 class="brand">kmruddy.com</h1></a>
+      <p class="lead">
+         My notes and ramblings, normally about automation 
+      </p>
+    </div>
+    <p>
+      <section class="row text-center">
+	
+	<a href="https://twitter.com/kmruddy"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	&nbsp;<a href="https://github.com/kmruddy"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	&nbsp;<a href="https://linkedin.com/in/kmruddy"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a>
+	
+	
+	&nbsp;<a href="https://stackoverflow.com/users/kmruddy"><i class="fab fa-stack-overflow fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+</section>
+
+    </p>
+    <p>
+      
+<div>
+	<ul class="sidebar-nav">
+		
+		
+				<li>
+					<a href="/"> <span>Home</span></a>
+				</li>
+				<li>
+					<a href="/about/"> <span>About</span></a>
+				</li>
+				<li>
+					<a href="/catagories/posh"> <span>PowerShell</span></a>
+				</li>
+				<li>
+					<a href="/catagories/pcli"> <span>PowerCLI</span></a>
+				</li>
+				<li>
+					<a href="/catagories/vbrownbag"> <span>vBrownBag</span></a>
+				</li>
+		</li>
+	</ul>
+</div>
+
+    </p>
+    <p class="copyright">&copy; 2018 Kyle Ruddy.<br />
+      <a href="https://creativecommons.org/licenses/by/4.0">Some Rights Reserved</a>.<br/>Built with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
+    </p>
+  </div>
+  <div>
+  </div>
+</div>
+
+        <div class="content container">
+            <div class="post">
+  <h1>PowerCLI - Configuring Per-VM EVC</h1>
+  
+  <div class="col-sm-12 col-md-12">
+    <span class="text-left post-date meta">
+            
+       
+        <i class="fas fa-calendar-alt"></i> May 21, 2018
+      
+      
+      
+      
+        
+        
+            <br/>
+             <i class="fas fa-tags"></i>
+            
+            <a class="meta" href="/tags/powercli">powercli</a> 
+        
+            <a class="meta" href="/tags/powershell">powershell</a> 
+        
+            <a class="meta" href="/tags/vmware">vmware</a>
+        
+      
+      
+      <br/>
+      <i class="fas fa-clock"></i> 6 min read 
+      </span>  
+  </div>    
+  
+  
+
+<p><a href="https://blogs.vmware.com/vsphere/launch">vSphere 6.7</a> was released a couple weeks ago and there were a ton of new features announced. However, there was one feature I was particularly interested in and that was <a href="https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-EE6F4E5A-3BEA-43DD-9990-DBEB0A280F3A.html">Per-VM EVC</a> (Enhanced vMotion Compatibility).</p>
+
+<p>Giving a brief, high-level overview, EVC can be used to set a baseline of CPU features available to a VM or a set of VMs. In the past, this was a cluster-based setting. It was really nice because you could take hosts which didn’t have the same CPUs, use EVC to apply a common CPU baseline, and still put them in a cluster to take advantage of features like DRS and HA. The problem is that once a VM left that cluster, the EVC configuration would no longer be enforced. With vSphere 6.7 that changes, EVC can now be applied at the VM object level. This is awesome because now a VM can move across clusters, across datacenters, or even out to <a href="https://cloud.vmware.com/vmc-aws">VMware Cloud on AWS</a> and remain powered on and compatible! Be on the lookout for a much deeper dive on Per-VM EVC by my counterpart Emad Younis shortly.</p>
+
+<p>Currently, configuring a VM’s EVC mode with PowerCLI is only available through a low-level command. That means, to configure this setting, we’re going to need to use methods that are exposed through either Get-View or a VM’s ExtensionData.</p>
+
+<p>Let’s take a look at how we can automate this new setting using PowerCLI!</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>First things first, we need to cover some requirements. To configure Per-VM EVC we need a couple things, including:
+- vSphere 6.7 (vCenter and ESXi host version)
+- A VM with hardware version 14
+- PowerCLI 10.1.0</p>
+
+<p>Once we have those all inline, we need to figure out what EVC mode is appropriate for this particular VM.</p>
+
+<h2 id="determining-the-desired-evc-mode">Determining the Desired EVC Mode</h2>
+
+<p>PowerCLI makes it extremely easy to figure out what EVC modes are available. Each ESXi host object has a top-level property we can use to discover what their maximum EVC mode is. Once we obtain that information from all the potential hosts, we choose the lowest baseline and configure the VM with that.</p>
+
+<p>Obtaining an ESXi host’s maximum EVC mode can done with the following command:</p>
+
+<pre><code class="language-powershell">Get-VMHost | Select-Object Name,MaxEVCMode
+</code></pre>
+
+<p><img src="/images/evc_01.jpg" alt="Example: Discovering VMHost MaxEVCMode" /></p>
+
+<p>From the above example, we can see that the VM’s EVC mode should be no higher than ‘intel-sandybridge’ to work on these hosts. If we anticipate moving this VM between vCenters, we would want to run the same command against the ESXi hosts managed by that vCenter. If we anticipate moving this out to VMware Cloud on AWS, we already know those hosts are configured to be at an EVC mode of ‘intel-broadwell’. Broadwell is a higher, more advanced, mode than Sandy Bridge, so we’re still going to use the Sandy Bridge mode for our VM.</p>
+
+<p>For more details about each EVC mode and how they rank, see the following KB article: <a href="https://kb.vmware.com/s/article/1003212">1003212 - Enhanced vMotion Compatibility (EVC) processor support</a></p>
+
+<h2 id="assigning-evc-mode">Assigning EVC Mode</h2>
+
+<p>We’re now ready to configure the per-VM EVC mode for this particular VM. The method we’ll be using is ‘ApplyEvcModeVM_Task’. More information about this can be found in the vSphere 6.7 Web Services API: <a href="https://code.vmware.com/apis/358/vsphere#/doc/vim.VirtualMachine.html#applyEvcMode">ApplyEvCModeVM_Task</a></p>
+
+<p>Based on the documentation, we have a couple parameters available to use:
+|Parameter|Type|
+|&mdash;|&mdash;|
+|mask|completeMask|
+|HostFeatureMask Object|Boolean|</p>
+
+<p>The ‘mask’ parameter is looking for the CPU masking features we wish to configure. This is where the API gets a little more advanced than the UI. Where the UI only allows us to set the top level EVC mode, the API enables us to either specify all the feature masks which correlate to the EVC mode or be as granular as to only specify specific masks, the choice is ours. To be clear, this method does not accept the top-level EVC mode as input. Personally, I configure all the feature masks so that the VM’s level is aligned with the top level EVC mode.</p>
+
+<p>The second parameter is ‘completeMasks’. This parameter is essentially asking if the masks presented are the complete list of masks to enable for this VM. This parameter accepts true or false as input and defaults to true. This is another reason I, personally, specify all the feature masks because then there is no confusion over what is or is not enabled for the virtual machine object.</p>
+
+<p>Before we run the method, we need to obtain a list of feature masks. Starting from a high level, we can obtain the EVC Modes which are supported by our present vCenter with the following command:</p>
+
+<pre><code class="language-powershell">$global:DefaultVIServer.ExtensionData.Capability.SupportedEVCMode
+</code></pre>
+
+<p>To only retrieve information about the ‘intel-sandybridge’ mask, we can add a ‘where’ statement searching for that as the ‘key’ property:</p>
+
+<pre><code class="language-powershell">$evcMode = $global:DefaultVIServer.ExtensionData.Capability.SupportedEVCMode
+$evcMode | Where-Object {$_.key -eq 'intel-sandybridge'}
+</code></pre>
+
+<p>Then, to isolate the masks we will be using as inputs for the ‘mask’ parameter, we can store the ‘FeatureMask’ output into a variable:</p>
+
+<pre><code class="language-powershell">$evcSB = $evcMode | Where-Object {$_.key -eq 'intel-sandybridge'}
+$featureMasks = $evcSB | Select-Object -ExpandProperty FeatureMask
+</code></pre>
+
+<p>The above can also be wrapped up into a one-liner with the following command:</p>
+
+<pre><code class="language-powershell">$featureMasks = $global:DefaultVIServer.ExtensionData.Capability.SupportedEVCMode | Where-Object {$_.key -eq 'intel-sandybridge'} | Select-Object -ExpandProperty FeatureMask
+</code></pre>
+
+<p>We’re now ready to run the command as follows:</p>
+
+<pre><code class="language-powershell">$vm.ExtensionData.ApplyEvcModeVM_Task($featureMasks,$true)
+</code></pre>
+
+<h2 id="putting-it-all-together">Putting It All Together</h2>
+
+<p>If we combine all of the code above, it will look like the following:</p>
+
+<pre><code class="language-powershell">Get-VM -Name file02 | select Name,HardwareVersion,@{Name='EvcMode';Expression={$_.ExtensionData.Runtime.MinRequiredEVCModeKey}}
+$vm = Get-VM -Name file02
+Get-VMHost | Select-Object Name,MaxEVCMode
+$featureMasks = $global:DefaultVIServer.ExtensionData.Capability.SupportedEVCMode | Where-Object {$_.key -eq 'intel-sandybridge'} | Select-Object -ExpandProperty FeatureMask
+$vm.ExtensionData.ApplyEvcModeVM_Task($featureMasks,$true)
+Get-VM -Name file02 | select Name,HardwareVersion,@{Name='EvcMode';Expression={$_.ExtensionData.Runtime.MinRequiredEVCModeKey}}
+</code></pre>
+
+<p><img src="/images/evc_02.jpg" alt="Example: Putting everything together to set Per-VM EVC mode of a single VM" /></p>
+
+<p>In 6 lines of code, we&rsquo;ve gone from a VM with no EVC mode to a VM configured with an EVC mode of &lsquo;intel-sandybridge&rsquo;!</p>
+
+<h2 id="community-module">Community Module</h2>
+
+<p>If you found all the above to be a little too cumbersome, there’s a community module you can use to simplify this entire process. This module is available on the <a href="https://github.com/vmware/PowerCLI-Example-Scripts/">PowerCLI Community Repository</a>: <a href="https://github.com/vmware/PowerCLI-Example-Scripts/tree/master/Modules/PerVMEVC">PerVMEVC</a></p>
+
+<p>The PerVMEVC module provides the following three functions:
+- Get-VMEvcMode
+- Remove-VMEvcMode
+- Set-VMEvcMode</p>
+
+<p>Here’s an example of them in action:
+<img src="/images/evc_03.jpg" alt="Example: Community Module Usage" /></p>
+
+<h2 id="summary">Summary</h2>
+
+<p>vSphere 6.7 came packed with new features. One feature in particular really enables VMs the mobility to run anywhere. That feature is Per-VM EVC. This new feature takes the cluster based EVC functionality we’re already familiar with and now makes it available at the VM object level. PowerCLI gives us the ability to automate the entire process through the API using the ‘ApplyEvcModeVM_Task’ method as well as a new community module that can be used to simplify the process!</p>
+
+</div>
+            <div class="footer">
+                <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script type="text/javascript">
+    hljs.configure({languages: []});
+    hljs.initHighlightingOnLoad();
+</script>
+
+    
+
+            </div>
+        </div>
+        
+        
+    </body>
+</html>

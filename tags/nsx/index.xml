@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nsx on </title>
+    <link>https://kmruddy.github.io/tags/nsx/</link>
+    <description>Recent content in Nsx on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 28 Nov 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://kmruddy.github.io/tags/nsx/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>PowerCLI - NSX-T Module Usage</title>
+      <link>https://kmruddy.github.io/posts/2017/pcli-nsxt-module-usage/</link>
+      <pubDate>Tue, 28 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/posts/2017/pcli-nsxt-module-usage/</guid>
+      <description>PowerCLI 6.5.3 was released a few short weeks ago and one of the biggest additions was the module to manage VMware NSX-T! This version of NSX provides network virtualization to not only VMware environments, but also multi-cloud and multi-hypervisor environments too.
+Before diving into the module itself, there are a couple things we should cover first. This module was released as a low-level, API access only, module. That means the module comes with the following cmdlets: Connect-NsxtServer, Disconnect-NsxtServer, and Get-NsxtService.</description>
+    </item>
+    
+  </channel>
+</rss>

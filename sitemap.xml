@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://kmruddy.github.io/posts/2018/rest-vcsa-backup/</loc>
+    <lastmod>2018-07-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kmruddy.github.io/posts/2018/rest-vmwonaws-edrs-usage/</loc>
+    <lastmod>2018-07-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kmruddy.github.io/posts/2018/pcli-vcsa-backup/</loc>
+    <lastmod>2018-07-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kmruddy.github.io/posts/2018/posh-invite-users-vmwonaws/</loc>
+    <lastmod>2018-06-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kmruddy.github.io/posts/2018/pcli-vmwonaws-deploy-one-host/</loc>
+    <lastmod>2018-06-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kmruddy.github.io/posts/2018/rest-vmwonaws-deploy-one-host/</loc>
+    <lastmod>2018-06-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kmruddy.github.io/posts/2018/dcli-installation/</loc>
+    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kmruddy.github.io/posts/2018/pcli-config-per-vm-evc/</loc>
+    <lastmod>2018-05-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kmruddy.github.io/posts/2018/pcli-install-macos/</loc>
+    <lastmod>2018-03-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kmruddy.github.io/posts/2018/python-sdk-for-vmwonaws/</loc>
+    <lastmod>2018-03-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kmruddy.github.io/posts/2018/pcli-vmwonaws-module-usage/</loc>
+    <lastmod>2018-02-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kmruddy.github.io/posts/2018/pcli-vmware-tools-module/</loc>
+    <lastmod>2018-01-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kmruddy.github.io/posts/2017/pcli-nsxt-module-usage/</loc>
+    <lastmod>2017-11-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kmruddy.github.io/about/</loc>
+    <lastmod>2017-06-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kmruddy.github.io/posts/2017/python-vsphere-sdk/</loc>
+    <lastmod>2017-04-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kmruddy.github.io/posts/2017/rest-vsphere-sdk/</loc>
+    <lastmod>2017-02-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kmruddy.github.io/</loc>
+    <lastmod>2018-07-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kmruddy.github.io/tags/aws/</loc>
+    <lastmod>2018-07-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kmruddy.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kmruddy.github.io/tags/dcli/</loc>
+    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kmruddy.github.io/tags/nsx/</loc>
+    <lastmod>2017-11-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kmruddy.github.io/posts/</loc>
+    <lastmod>2018-07-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kmruddy.github.io/tags/powercli/</loc>
+    <lastmod>2018-07-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kmruddy.github.io/tags/powershell/</loc>
+    <lastmod>2018-07-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kmruddy.github.io/tags/python/</loc>
+    <lastmod>2018-03-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kmruddy.github.io/tags/rest/</loc>
+    <lastmod>2018-07-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kmruddy.github.io/tags/</loc>
+    <lastmod>2018-07-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kmruddy.github.io/tags/vmware/</loc>
+    <lastmod>2018-07-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

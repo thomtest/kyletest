@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on </title>
+    <link>https://kmruddy.github.io/tags/python/</link>
+    <description>Recent content in Python on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 26 Mar 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://kmruddy.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python - Using the vSphere Automation SDK with VMware Cloud on AWS</title>
+      <link>https://kmruddy.github.io/posts/2018/python-sdk-for-vmwonaws/</link>
+      <pubDate>Mon, 26 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/posts/2018/python-sdk-for-vmwonaws/</guid>
+      <description>The vSphere Automation SDK for Python has recently received some exciting updates. These updates add the ability to easily develop against and automate VMware Cloud on AWS! There are even samples to list organization information, manage SDDCs, and lots of networking functionality!
+Let’s take a look at how to easily get started with this SDK on a MacOS system. Before diving in though, there are a couple prerequisites we’ll need to download and install.</description>
+    </item>
+    
+    <item>
+      <title>Python - Using the vSphere Automation SDK</title>
+      <link>https://kmruddy.github.io/posts/2017/python-vsphere-sdk/</link>
+      <pubDate>Tue, 11 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/posts/2017/python-vsphere-sdk/</guid>
+      <description>We’ve been looking at how to get started using the new vSphere Automation SDKs. In the last couple parts of the series we looked at the SDK for REST, which included Postman REST client samples, as well as some JavaScript samples. This time, we’ll be looking at the vSphere Automation SDK for Python!
+Prerequisites There are a handful of ways to install and setup Python on your workstation, I will be walking through a high level configuration for my Mac.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dcli on </title>
+    <link>https://kmruddy.github.io/tags/dcli/</link>
+    <description>Recent content in Dcli on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 04 Jun 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://kmruddy.github.io/tags/dcli/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>DCLI - New Installation Process</title>
+      <link>https://kmruddy.github.io/posts/2018/dcli-installation/</link>
+      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/posts/2018/dcli-installation/</guid>
+      <description>Datacenter CLI (DCLI) 2.9.1 has been released and the new features are fantastic! One of the key new updates is how we install this new version of DCLI.
+In the past, DCLI was installed as part of vSphere CLI (vCLI). In this current version, DCLI is installed through the Python Package Index (PyPI) using pip. PyPI is the official, third-party, online repository for Python packages. Pip is a package management system which handles the installation process of Python packages from repositories like PyPI.</description>
+    </item>
+    
+  </channel>
+</rss>

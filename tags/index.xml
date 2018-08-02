@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on </title>
+    <link>https://kmruddy.github.io/tags/</link>
+    <description>Recent content in Tags on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 24 Jul 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://kmruddy.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Aws</title>
+      <link>https://kmruddy.github.io/tags/aws/</link>
+      <pubDate>Tue, 24 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dcli</title>
+      <link>https://kmruddy.github.io/tags/dcli/</link>
+      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/tags/dcli/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nsx</title>
+      <link>https://kmruddy.github.io/tags/nsx/</link>
+      <pubDate>Tue, 28 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/tags/nsx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Powercli</title>
+      <link>https://kmruddy.github.io/tags/powercli/</link>
+      <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/tags/powercli/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Powershell</title>
+      <link>https://kmruddy.github.io/tags/powershell/</link>
+      <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/tags/powershell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://kmruddy.github.io/tags/python/</link>
+      <pubDate>Mon, 26 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rest</title>
+      <link>https://kmruddy.github.io/tags/rest/</link>
+      <pubDate>Tue, 24 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/tags/rest/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vmware</title>
+      <link>https://kmruddy.github.io/tags/vmware/</link>
+      <pubDate>Tue, 24 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/tags/vmware/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on </title>
+    <link>https://kmruddy.github.io/posts/</link>
+    <description>Recent content in Posts on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 24 Jul 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://kmruddy.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>REST - Configuring VCSA Backups</title>
+      <link>https://kmruddy.github.io/posts/2018/rest-vcsa-backup/</link>
+      <pubDate>Tue, 24 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/posts/2018/rest-vcsa-backup/</guid>
+      <description>Did you know the vCenter Server Appliance (VCSA) has file-based backup options?
+This ability was actually released in vSphere 6.5. However, there was one feature in particular that was missing: a scheduler. I&amp;rsquo;m happy to say that as part of vSphere 6.7, the VCSA received a backup scheduler!
+Recently, my teammate, Emad Younis released a couple cool walkthroughs to the vSphere Central site to manage file-based backup and restore actions.</description>
+    </item>
+    
+    <item>
+      <title>REST - Configuring VMware Cloud on AWS EDRS Policies</title>
+      <link>https://kmruddy.github.io/posts/2018/rest-vmwonaws-edrs-usage/</link>
+      <pubDate>Tue, 17 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/posts/2018/rest-vmwonaws-edrs-usage/</guid>
+      <description>There’s been a new batch of features released for VMware Cloud on AWS!
+While there’s a lot of important new features, there’s one in particular I’d like to focus on. This new feature is called Elastic DRS (EDRS). EDRS allows you to automatically right-size your SDDC for the current workload demand and do it all by way of a policy. Even better, there are RESTful APIs to help you automate the configuration of this policy!</description>
+    </item>
+    
+    <item>
+      <title>PowerCLI - Configuring VCSA Backups</title>
+      <link>https://kmruddy.github.io/posts/2018/pcli-vcsa-backup/</link>
+      <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/posts/2018/pcli-vcsa-backup/</guid>
+      <description>Did you know the vCenter Server Appliance (VCSA) has file-based backup options? This ability was actually released in vSphere 6.5. However, there was one feature in particular that was missing: a scheduler. I&amp;rsquo;m happy to say that as part of vSphere 6.7, the VCSA received a backup scheduler!
+Recently, my teammate, Emad Younis released a couple cool walkthroughs to the vSphere Central site to manage file-based backup and restore actions.</description>
+    </item>
+    
+    <item>
+      <title>PowerShell - Inviting Users to VMware Cloud on AWS Org</title>
+      <link>https://kmruddy.github.io/posts/2018/posh-invite-users-vmwonaws/</link>
+      <pubDate>Fri, 29 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/posts/2018/posh-invite-users-vmwonaws/</guid>
+      <description>Recently, VMware Cloud on AWS announced the ability to create an SDDC with a single host. This is a pretty exciting update, one many of our users have been asking for. Along with the ability to deploy an SDDC in a much smaller footprint, you get access to all the automation and developer resources available such as the built-in Developer Center and the RESTful APIs.
+In a post on the VMware Code blog, Automating VMware Cloud on AWS One Host SDDC Deployments, some code samples were debuted by Alan Renouf and myself to deploy a single host SDDC using direct REST calls, PowerCLI, and DCLI.</description>
+    </item>
+    
+    <item>
+      <title>PowerCLI - VMware Cloud on AWS - Deploy One Host SDDC</title>
+      <link>https://kmruddy.github.io/posts/2018/pcli-vmwonaws-deploy-one-host/</link>
+      <pubDate>Wed, 20 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/posts/2018/pcli-vmwonaws-deploy-one-host/</guid>
+      <description>The latest release of VMware Cloud on AWS introduces a brand-new deployment configuration. We can now deploy an SDDC which consists of a single host! This is exciting for many reasons, but biggest reason for me is being able to access all the APIs without occupying the standard minimum SDDC footprint of four hosts. More information on the One Host release is available here: VMware Cloud on AWS – Single Host Access</description>
+    </item>
+    
+    <item>
+      <title>REST - VMware Cloud on AWS - Deploy One Host SDDC</title>
+      <link>https://kmruddy.github.io/posts/2018/rest-vmwonaws-deploy-one-host/</link>
+      <pubDate>Wed, 20 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/posts/2018/rest-vmwonaws-deploy-one-host/</guid>
+      <description>The latest release of VMware Cloud on AWS introduces a brand-new deployment configuration. We can now deploy an SDDC which consists of a single host! This is exciting for many reasons, but biggest reason for me is being able to access all the APIs without occupying the standard minimum SDDC footprint of four hosts. More information on the One Host release is available here: VMware Cloud on AWS – Single Host Access</description>
+    </item>
+    
+    <item>
+      <title>DCLI - New Installation Process</title>
+      <link>https://kmruddy.github.io/posts/2018/dcli-installation/</link>
+      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/posts/2018/dcli-installation/</guid>
+      <description>Datacenter CLI (DCLI) 2.9.1 has been released and the new features are fantastic! One of the key new updates is how we install this new version of DCLI.
+In the past, DCLI was installed as part of vSphere CLI (vCLI). In this current version, DCLI is installed through the Python Package Index (PyPI) using pip. PyPI is the official, third-party, online repository for Python packages. Pip is a package management system which handles the installation process of Python packages from repositories like PyPI.</description>
+    </item>
+    
+    <item>
+      <title>PowerCLI - Configuring Per-VM EVC</title>
+      <link>https://kmruddy.github.io/posts/2018/pcli-config-per-vm-evc/</link>
+      <pubDate>Mon, 21 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/posts/2018/pcli-config-per-vm-evc/</guid>
+      <description>vSphere 6.7 was released a couple weeks ago and there were a ton of new features announced. However, there was one feature I was particularly interested in and that was Per-VM EVC (Enhanced vMotion Compatibility).
+Giving a brief, high-level overview, EVC can be used to set a baseline of CPU features available to a VM or a set of VMs. In the past, this was a cluster-based setting. It was really nice because you could take hosts which didn’t have the same CPUs, use EVC to apply a common CPU baseline, and still put them in a cluster to take advantage of features like DRS and HA.</description>
+    </item>
+    
+    <item>
+      <title>PowerCLI - MacOS Installation</title>
+      <link>https://kmruddy.github.io/posts/2018/pcli-install-macos/</link>
+      <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/posts/2018/pcli-install-macos/</guid>
+      <description>PowerCLI 10.0.0 was released just a few weeks ago and one of the key updates was the added support for MacOS and Linux operating systems. It’s still amazing to think about! PowerShell and PowerCLI available to users on OSes other than just Windows. Wow!
+Let’s put this to action and get PowerCLI installed on a MacOS system.
+Prerequisite: Installing PowerShell Core – Package The minimally required version for MacOS is PowerShell Core 6.</description>
+    </item>
+    
+    <item>
+      <title>Python - Using the vSphere Automation SDK with VMware Cloud on AWS</title>
+      <link>https://kmruddy.github.io/posts/2018/python-sdk-for-vmwonaws/</link>
+      <pubDate>Mon, 26 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/posts/2018/python-sdk-for-vmwonaws/</guid>
+      <description>The vSphere Automation SDK for Python has recently received some exciting updates. These updates add the ability to easily develop against and automate VMware Cloud on AWS! There are even samples to list organization information, manage SDDCs, and lots of networking functionality!
+Let’s take a look at how to easily get started with this SDK on a MacOS system. Before diving in though, there are a couple prerequisites we’ll need to download and install.</description>
+    </item>
+    
+    <item>
+      <title>PowerCLI - VMware Cloud on AWS Module Usage</title>
+      <link>https://kmruddy.github.io/posts/2018/pcli-vmwonaws-module-usage/</link>
+      <pubDate>Tue, 20 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/posts/2018/pcli-vmwonaws-module-usage/</guid>
+      <description>VMware Cloud on AWS is a new on-demand service that enables you to run applications across vSphere-based environments plus access to a broad range of AWS services. PowerCLI already helps to automate your VMware Cloud on AWS tasks! This includes tasks such as creating SDDCs, adding or removing ESXi hosts, managing firewall rules, and so forth. The VMware Cloud on AWS (VMC) module was released as a low-level, API access only, module and will feature the following cmdlets:</description>
+    </item>
+    
+    <item>
+      <title>PowerCLI - Community Module - VMware Tools</title>
+      <link>https://kmruddy.github.io/posts/2018/pcli-vmware-tools-module/</link>
+      <pubDate>Tue, 09 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/posts/2018/pcli-vmware-tools-module/</guid>
+      <description>VMware Tools is a collection of in-guest drivers and agents that optimize performance and increase the manageability for VMs within vSphere environments. Guess what, PowerCLI provides a way to automate the management of the VMware Tools lifecycle! Even better, a new module was recently entered into the PowerCLI Community Repository to help make those management tasks even easier than before!
+The module includes a collection of over 10 different advanced functions!</description>
+    </item>
+    
+    <item>
+      <title>PowerCLI - NSX-T Module Usage</title>
+      <link>https://kmruddy.github.io/posts/2017/pcli-nsxt-module-usage/</link>
+      <pubDate>Tue, 28 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/posts/2017/pcli-nsxt-module-usage/</guid>
+      <description>PowerCLI 6.5.3 was released a few short weeks ago and one of the biggest additions was the module to manage VMware NSX-T! This version of NSX provides network virtualization to not only VMware environments, but also multi-cloud and multi-hypervisor environments too.
+Before diving into the module itself, there are a couple things we should cover first. This module was released as a low-level, API access only, module. That means the module comes with the following cmdlets: Connect-NsxtServer, Disconnect-NsxtServer, and Get-NsxtService.</description>
+    </item>
+    
+    <item>
+      <title>Python - Using the vSphere Automation SDK</title>
+      <link>https://kmruddy.github.io/posts/2017/python-vsphere-sdk/</link>
+      <pubDate>Tue, 11 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/posts/2017/python-vsphere-sdk/</guid>
+      <description>We’ve been looking at how to get started using the new vSphere Automation SDKs. In the last couple parts of the series we looked at the SDK for REST, which included Postman REST client samples, as well as some JavaScript samples. This time, we’ll be looking at the vSphere Automation SDK for Python!
+Prerequisites There are a handful of ways to install and setup Python on your workstation, I will be walking through a high level configuration for my Mac.</description>
+    </item>
+    
+    <item>
+      <title>REST - Using the vSphere Automation SDK</title>
+      <link>https://kmruddy.github.io/posts/2017/rest-vsphere-sdk/</link>
+      <pubDate>Thu, 02 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://kmruddy.github.io/posts/2017/rest-vsphere-sdk/</guid>
+      <description>vSphere 6.5 introduced a big update to its newest API service, which is known as the vSphere Automation API. This API is a big step forward in the process of simplifying and modernizing our APIs. This service also allows us to introduce several new SDKs for the following programming languages: Java, Python, .NET, Perl, Ruby, and REST. This blog will take a look at the REST SDK and how to easily get started using it.</description>
+    </item>
+    
+  </channel>
+</rss>
